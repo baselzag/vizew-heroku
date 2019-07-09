@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Vizew - Blog &amp; Magazine HTML Template</title>
+
+    <%-include('partials/header')%>
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Top Header Area -->
+        <%-include('partials/topHeader')%>
+
+        <!-- Navbar Area -->
+        <div class="vizew-main-menu" id="sticker">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+
+                    <!-- Menu -->
+                    <%-include('partials/navigation')%>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="vizew-breadcrumb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/admin"><i class="fa fa-home" aria-hidden="true"></i> Admin Panel</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Users Management</li>
+                                <li style="margin-left: 600px;"><i class="fa fa-chevron-left"></i><a href="/admin"style="margin-left: 1rem ;">Back to Admin Panel</a></li>
+                            </ol>
+                            
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <!-- ##### Login Area Start ##### -->
+    <div class="vizew-login-area section-padding-80">
+        <div class="container ">
+            <div class="row justify-content-center">
+                <div class="col-12 ">
+                    <div class="login-content">
+                        <!-- Section Title -->
+                        <div class="section-heading">
+                            <h4>Users Management</h4>
+                            <div class="line"></div>
+                        </div>
+
+
+                        <div class="section-heading" style="margin-top: 7rem ;">
+
+                            <table class="table ">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">User Name</th>
+                                    <th scope="col">active</th>
+                                    <th scope="col">Edite</th>
+                                    <th scope="col">Delete</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                              <%for(let i = 0 ; i < result.length ; i++){%>
+                                  <tr>
+                                    <th scope="row"><%=i+1%></th>
+                                    <td><%=result[i].firstName%></td>
+                                    <td><%=result[i].lastName%></td>
+                                    <td><%=result[i].userName%></td>
+                                    <td><%=result[i].active%></td>
+                                    <%if (result[i].active == true) { %>
+                                   
+                                        <td><a href="/admin/userpersonalinfo" >edite</a></td>
+                                   
+                                        <td><a href="#"  >delete</a></td>
+                                </tr>
+                                    <%}else{%>
+                                    <td><a href="/admin/userinfo/<%=result[i]._id%>" >edite</a></td>
+                                   
+                                    <td><a href="#"  >delete</a></td>
+                                  </tr>
+                                  <%}%>
+                              <%}%>
+                                </tbody>
+                              </table>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Login Area End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+
+    <%-include('partials/footer')%>
+
+    <!-- ##### Footer Area End ##### -->
+
+    <%-include('partials/scripts')%>
+
+
+            
+          </body>
+        </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
